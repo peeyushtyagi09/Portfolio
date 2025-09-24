@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+
+body, html{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: font1;
+    src: url('https://res.cloudinary.com/djlcf4ix9/raw/upload/v1757103932/Lausanne-300_r1z90g.woff2');
+    font-weight: 300;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: font2;
+    src: url('https://res.cloudinary.com/djlcf4ix9/raw/upload/v1757104290/Lausanne-500_vbrxaq.woff2');
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @keyframes scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  
+  .animate-scroll {
+    display: flex;
+    animation: scroll 20s linear infinite;
+  }
+
+.Textss .Texts {
+  /* left: calc(50% - 100px); */
+  transform: perspective(1000px);
+  transform-style: preserve-3d;
+  animation: autoRun 20s linear infinite;
+
+}
+
+@keyframes autoRun {
+  from {
+    transform: perspective(1000px) rotateX(5deg) rotateY(0deg);
+  }to{
+    transform: perspective(1000px) rotateX(5deg) rotateY(360deg);
+  }
+}
+ .Texts .item{
+  inset: 0 0 0 0;
+  transform: 
+  rotateY(calc( (var(--i) - 1) * (360 / var(--q)) * 1deg))
+  translateZ(30vw);
+
+}
+
+.info{ 
+  
+}
+
