@@ -1,6 +1,6 @@
 import React , {useState} from 'react'
 import { Routes, Route } from 'react-router-dom'
-import Home from './Pages/Home.jsx'
+import Home from './pages/Home.jsx'
 import Loader from './components/Loader/Loader.jsx'
 import Navbar from './components/Navbar.jsx'
 import About from './pages/About.jsx'

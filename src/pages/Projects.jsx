@@ -7,7 +7,7 @@ import { EffectComposer, Bloom, ToneMapping } from "@react-three/postprocessing"
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react"; 
 import { ScrollTrigger } from "gsap/ScrollTrigger";  
-import ProjectCard from './projectsCards'
+import ProjectCard from './ProjectsCards'
 
 
 gsap.registerPlugin(ScrollTrigger);
