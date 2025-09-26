@@ -159,13 +159,13 @@ const handleNavClick = (path) => {
             <h1 ref={text1} style={{
             fontFamily:"Cinzel ",
             fontWeight: 100,
-          }} className='uppercase text-[1.5vw] lg:text-2xl'>Avilable for freelance <br /> <u>PeeyushTyagi82@gamil.com</u></h1>
+          }} className=' text-[1.5vw] lg:text-2xl'>Avilable for freelance <br /> <u>peeyushTyagi82@gamil.com</u></h1>
           </div> 
           <div className='overflow-hidden'>
             <h1 ref={text2} style={{
             fontFamily:"Cinzel ",
             fontWeight: 100,
-          }} className='uppercase'>[©Qoreeb2025]</h1>
+          }} className=''>[©Qoreeb2025]</h1>
           </div>
         </div>
     </div>
