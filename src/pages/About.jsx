@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -9,7 +9,10 @@ gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
 const About = ({ openNavbar }) => { 
   const rectRef = useRef(null);
-  const navRef1 = useRef(null);
+  const navRef1 = useRef(null); 
+  const item_container = useRef(null);
+ 
+
 
   const handleOpen = () => { 
     if (navRef1.current) {
@@ -37,10 +40,60 @@ const About = ({ openNavbar }) => {
       });
     }
   });
+
+  useGSAP(() => {
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: item_container.current,
+        start: "top top",
+        end: "+=3000", // long scroll distance
+        scrub: true,
+        pin: true,
+      },
+    }).from(".item", { 
+      translateY:"100%", 
+      stagger: 10,  // items reveal one by one
+      duration: 10,
+      ease: "power3.inOut",
+    }).from(".img_item", { 
+      translateY:"100%", 
+      stagger: 10,  // items reveal one by one
+      duration: 10,
+      ease: "power3.inOut",
+      pin: true,
+    }, 1).from(".text_item", { 
+      translateY:"100%", 
+      stagger: 10,  // items reveal one by one
+      duration: 10,
+      ease: "power3.inOut",
+      pin: true,
+    }, 1).from(".text", { 
+      translateY:"100%", 
+      opacity: 0,
+      stagger: 10,  // items reveal one by one
+      duration: 10,
+      ease: "power3.inOut", 
+    }, 1).to(".text", {
+      opacity: 0,  
+      translateY:"-100%",
+    }).from(".text1", { 
+      translateY:"100%", 
+      opacity: 0,
+      stagger: 10,  // items reveal one by one
+      duration: 10,
+      ease: "power3.inOut", 
+    }, 1).to(".text1", {
+      opacity: 0,  
+      translateY:"-100%",
+    })
+  }, []);
+  
+  
+ 
   
 
   return (
-    <div className="w-screen h-screen bg-[#e5e5dd] text-black overflow-hidden">
+    <div className="w-screen h-screen bg-[#e5e5dd] text-black overflow-x-hidden p-0 m-0">
       <div ref={navRef1} className='  sticky h-[10%] w-screen  overflow-hidden bg-transprant flex flex-row justify-between items-center pl-10 pr-10 '>
       <div className='overflow-hidden p-2'>
         <h1 style={{fontFamily: "Fancy Candy"}}  className='uppercase leading-3.5 text-[1.1rem]  p-1.5 pb-0 rounded-[20%] text-[#e5e5dd] bg-black '> PE <br/> TY </h1>
@@ -74,6 +127,75 @@ const About = ({ openNavbar }) => {
 </svg>
 <img  ref={rectRef} className="w-30 h-20 hidden lg:flex" src="./main.gif" alt="" />
 
+      </div>
+      <div ref={item_container} className="w-screen h-screen bg-[#e5e5dd] absolute  justify-center items-center flex overflow-hidden">
+        <div className=" w-[95%] h-[95%]  absolute items-center justify-center flex">
+        <img className="w-full h-full object-cover  top-0 left-0 blur-sm" src="https://res.cloudinary.com/djlcf4ix9/image/upload/v1758728599/QmdWJmGCuyy1NKc23iRHZj1NR6pAsA4ynVL6KpNf98bpkw_of7xhd.avif" />
+          <div className="z-50 w-[55%] h-[60%] lg:w-[35%] lg:h-[75%] absolute overflow-hidden flex lg:left-10 top-5 lg:top-auto"> 
+          <div className="w-full h-full object-cover absolute top-0 left-0 bg-[#fff5e8] flex flex-col justify-center items-center border-2 rounded-sm">
+            <p style={{ fontFamily: "Fancy Candy" }} className=" p-3 ">Do you want to connect with me?</p>
+            <div className="w-[90%] h-[75%] border-2 border-black rounded-sm overflow-hidden">
+            <img className="w-full h-full object-cover  top-0 left-0" src="https://res.cloudinary.com/djlcf4ix9/image/upload/v1758728599/QmdWJmGCuyy1NKc23iRHZj1NR6pAsA4ynVL6KpNf98bpkw_of7xhd.avif" />
+            </div>
+            <p style={{ fontFamily: "Fancy Candy" }} className=" pb-3  pt-5">Linkden</p>
+          </div>
+          <div className="img_item w-full h-full object-cover absolute top-0 left-0 bg-[#fff5e8] flex flex-col justify-center items-center border-2 rounded-sm">
+            <p style={{ fontFamily: "Fancy Candy" }} className=" p-3 ">Do you want to connect with me?</p>
+            <div className="w-[90%] h-[75%] border-2 border-black rounded-sm overflow-hidden">
+            <img className=" w-full h-full object-cover  top-0 left-0 " src="https://res.cloudinary.com/djlcf4ix9/image/upload/v1758728109/QmXtghv7fNUv9e5nSejRiLAnJLfa1FQgL6RswXqFwRGPE3_j3rv7v.avif" />
+            </div>
+            <p style={{ fontFamily: "Fancy Candy" }} className=" pb-3  pt-5">Leetcode</p>
+          </div>
+          <div className="img_item w-full h-full object-cover absolute top-0 left-0 bg-[#fff5e8] flex flex-col justify-center items-center border-2 rounded-sm">
+            <p style={{ fontFamily: "Fancy Candy" }} className="z-50 p-3 ">Do you want to connect with me?</p>
+            <div className="w-[90%] h-[75%] border-2 border-black rounded-sm overflow-hidden">
+            <img className=" w-full h-full object-cover  top-0 left-0" src="https://res.cloudinary.com/djlcf4ix9/image/upload/v1758728049/QmZpt1HAxEJvRs11eyDohysZcLfCa9w6wdkDGRZeoNBsqp_irzljt.avif" />
+            </div>
+            <p style={{ fontFamily: "Fancy Candy" }} className=" pb-3  pt-5">Github</p>
+          </div>
+          <div className="img_item w-full h-full object-cover absolute top-0 left-0 bg-[#fff5e8] flex flex-col justify-center items-center border-2 rounded-sm">
+            <p style={{ fontFamily: "Fancy Candy" }} className=" p-3 ">Do you want to connect with me?</p>
+            <div className="w-[90%] h-[75%] border-2 border-black rounded-sm overflow-hidden">
+            <img className=" w-full h-full object-cover  top-0 left-0" src="https://res.cloudinary.com/djlcf4ix9/image/upload/v1757227769/QmaMr4C1di9jPe3assvNAwbM1uYujg9cmoo6wcsuDSLV3V_b2p5ig.avif" />
+            </div>
+            <p style={{ fontFamily: "Fancy Candy" }} className=" pb-3  pt-5">GreekforGreek</p>
+          </div>
+          <div className="img_item w-full h-full object-cover absolute top-0 left-0 bg-[#fff5e8] flex flex-col justify-center items-center border-2 rounded-sm">
+            <p style={{ fontFamily: "Fancy Candy" }} className=" p-3 ">Do you want to connect with me?</p>
+            <div className="w-[90%] h-[75%] border-2 border-black rounded-sm overflow-hidden">
+            <img className=" w-full h-full object-cover  top-0 left-0" src="https://res.cloudinary.com/djlcf4ix9/image/upload/v1757227646/QmXgLyR6n63UMp8H8zL9JgvGw4SWuZrYSWyVEk6aL3XHKN_fzvex9.avif" />
+            </div>
+            <p style={{ fontFamily: "Fancy Candy" }} className=" pb-3  pt-5">Quara</p>
+          </div> 
+          </div>
+          <div className="absolute z-50 w-[75%] h-[30%] lg:w-[50%] lg:h-[75%]  text-white text-3xl flex bottom-5 lg:left-[45%] lg:bottom-auto flex-col">  
+            <div className="w-full h-[25%] lg:h-[15%]  p-1">
+              <img className="w-12 lg:w-17 border-2 border-white rounded-[50%] object-cover h-full" src="https://assets.lummi.ai/assets/Qmf39FM3RBBmPKRooWWRfPAq7sSrVvcuau7PVsKKLoReTb?auto=format&w=1500" alt="" />
+            </div>
+            <div style={{ fontFamily: "cinzel" }} className="h-full w-full   m-1 ">
+              <p className="text-[2.5vw] lg:text-[1.5vw] pl-20 lg:pl-30">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio iste natus neque impedit ipsam eum, ratione, repellat dignissimos cum unde numquam ea at praesentium obcaecati, sed illo similique? Facilis, cupiditate!</p>
+              <p className="text-[2.5vw] lg:text-[1vw] pr-30 pl-3 pt-52 bottom-0 hidden lg:flex">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio iste natus neque impedit ipsam eum, ratione, </p>
+
+            </div>
+            <div>
+
+            </div>
+
+
+          </div>
+        </div>
+        <div className="item w-[95%] h-[95%]  absolute items-center justify-center flex">
+        <img className=" w-full h-full object-cover  top-0 left-0 blur-sm" src="https://res.cloudinary.com/djlcf4ix9/image/upload/v1758728109/QmXtghv7fNUv9e5nSejRiLAnJLfa1FQgL6RswXqFwRGPE3_j3rv7v.avif" /> 
+        </div>
+        <div className=" item w-[95%] h-[95%]  absolute items-center justify-center flex"> 
+        <img className=" w-full h-full object-cover  top-0 left-0 blur-sm" src="https://res.cloudinary.com/djlcf4ix9/image/upload/v1758728109/QmXtghv7fNUv9e5nSejRiLAnJLfa1FQgL6RswXqFwRGPE3_j3rv7v.avif" />
+        </div>
+        <div className="item w-[95%] h-[95%]  absolute items-center justify-center flex">
+        <img className=" w-full h-full object-cover  top-0 left-0 blur-sm" src="https://res.cloudinary.com/djlcf4ix9/image/upload/v1757227769/QmaMr4C1di9jPe3assvNAwbM1uYujg9cmoo6wcsuDSLV3V_b2p5ig.avif" /> 
+        </div>
+        <div className="item w-[95%] h-[95%]  absolute items-center justify-center flex"> 
+        <img className=" w-full h-full object-cover  top-0 left-0 blur-sm" src="https://res.cloudinary.com/djlcf4ix9/image/upload/v1757227646/QmXgLyR6n63UMp8H8zL9JgvGw4SWuZrYSWyVEk6aL3XHKN_fzvex9.avif" />
+        </div>
       </div>
     </div>
   );

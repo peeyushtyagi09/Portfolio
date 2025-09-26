@@ -1,81 +1,104 @@
-import React, { useEffect, useRef } from 'react' 
-const ProjectCard = () => {
-    const videoRef = useRef(null);
+// ProjectCard.jsx
+import React, { useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom"
 
-    useEffect(() => {
-      if (videoRef.current) {
-        videoRef.current.playbackRate = 2.0; // 2x speed
-      }
-    }, []);
-    return (
-        <>
-            <div style={{
-                fontFamily: "Fancy Candy"
-            }} className=' h-screen w-screen flex flex-col lg:flex-row justify-center items-center  gap-5'>
-            <div className='rounded-2xl h-[45%] lg:h-[85%] w-[90%] lg:w-[40%] bg-gray-600 m-1 flex justify-center items-center'>
-                <div className='rounded-2xl bg-black h-[95%] w-[97%] m-1 flex flex-col justify-center items-center'>
-                <div className="relative w-[98%] h-[82%] bg-blue-200 m-1 rounded-2xl overflow-hidden group flex justify-center items-center">
-                    {/* Image that blurs when parent is hovered */}
-                    <img
-                        className="w-full h-full object-cover overflow-hidden blur-0 group-hover:blur-xl group-hover:scale-110 transition-all duration-500"
-                        src="https://www.lummi.ai/api/pro/image/83a17a35-5ac0-4158-800f-39145efa092b?asset=original&cb=igNcdP&auto=format&w=1500"
-                        alt=""
-                    />
+const ProjectCard = ({ left, right }) => {
 
-                    {/* Red box with video appears on hover */}
-                    <div className=" absolute bg-red-500 w-[70%] h-[70%] rounded-2xl flex justify-center items-center opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
-                        <video
-                        ref={videoRef}
-                        src=""
-                        autoPlay
-                        loop
-                        muted
-                        className=" w-full h-full object-cover rounded-2xl"
-                        ></video>
-                    </div>
-                </div>
-                    <div className=' w-[98%] h-[15%]  m-1 rounded-2xl flex flex-col justify-between items-center p-1 '>
-                            <div className='flex items-center  justify-between w-[98%] lg:h-[45%] text-white h-[97%] rounded-2xl pl-5 pr-5 text-2xl'>
-                                <h1>Peeyush</h1>
-                                <h1>tyagi</h1>
-                            </div>
-                            <hr className='bg-white' />
-                            <div className='hidden lg:flex items-center justify-center w-[98%] lg:h-[45%] h-[97%] text-white rounded-2xl'>
-                                <p>bwdjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj</p>
-                            </div>
-                        </div>
-                </div>
+  const navigate = useNavigate();
+  const leftVideoRef = useRef(null);
+  const rightVideoRef = useRef(null);
+
+  useEffect(() => {
+    if (leftVideoRef.current) leftVideoRef.current.playbackRate = 2.0;
+    if (rightVideoRef.current) rightVideoRef.current.playbackRate = 2.0;
+  }, []);
+
+  return (
+    <div
+      style={{ fontFamily: "Fancy Candy" }}
+      className="h-screen w-screen flex flex-col lg:flex-row justify-center items-center gap-5"
+    >
+      {/* Left card */}
+      <div className="rounded-2xl h-[45%] lg:h-[85%] w-[90%] lg:w-[40%] bg-gray-600 m-1 flex justify-center items-center">
+        <div className="rounded-2xl bg-black h-[95%] w-[97%] m-1 flex flex-col justify-center items-center">
+          <div className="relative w-[98%] h-[82%] m-1 rounded-2xl overflow-hidden group flex justify-center items-center">
+            <img
+              className="w-full h-full object-cover blur-0 group-hover:blur-xl group-hover:scale-110 transition-all duration-500"
+              src={left.image}
+              alt={left.title}
+            />
+            <div className="absolute bg-red-500 w-[70%] h-[70%] rounded-2xl flex justify-center items-center opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+              <video
+              onClick={() => {
+                if (left.linkType === "internal") {
+                  navigate(left.link); // React Router internal navigation
+                } else {
+                  window.open(left.link, "_blank"); // open external in new tab
+                }
+              }}
+                ref={leftVideoRef}
+                src={left.video}
+                autoPlay
+                loop
+                muted
+                className="w-full h-full object-cover rounded-2xl"
+              />
             </div>
-
-                <div className=' rounded-2xl h-[45%] lg:h-[85%]  w-[90%] lg:w-[40%] bg-gray-600 m-1 flex justify-center items-center'>
-                <div className='bg-black h-[95%] w-[97%] m-2 rounded-2xl'>
-                <div className="relative w-[98%] h-[82%] bg-blue-200 m-1 rounded-2xl overflow-hidden group flex justify-center items-center">
-                <img className='w-full h-full object-cover overflow-hidden blur-0 group-hover:blur-xl group-hover:scale-110 transition-all duration-500' src="https://assets.lummi.ai/assets/QmXfGd1zZr95fK713NDi7fiP4bUtL9QMaqPSSThHdbYEFz?auto=format&w=1500" alt="" />
-                    <div className="absolute bg-red-500 w-[70%] h-[70%] rounded-2xl flex justify-center items-center opacity-0 group-hover:opacity-100 transition-all group-hover:scale-110 duration-500">
-                        <video
-                        ref={videoRef}
-                        src=""
-                        autoPlay
-                        loop
-                        muted
-                        className="w-full h-full object-cover rounded-2xl"
-                        ></video>
-                        </div>
-                    </div>
-                        <div className=' w-[98%] h-[15%] text-white m-1 rounded-2xl flex flex-col justify-between items-center p-1 '>
-                            <div className='flex items-center  justify-between w-[98%] lg:h-[45%]  h-[97%] rounded-2xl pl-5 pr-5 text-2xl'>
-                                <h1>Peeyush</h1>
-                                <h1>tyagi</h1>
-                            </div>
-                            <div className='hidden lg:flex items-center justify-center w-[98%] lg:h-[45%] h-[97%]  rounded-2xl'>
-                                <p>bwdjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          </div>
+          <div className="w-[98%] h-[15%] m-1 rounded-2xl flex flex-col justify-between items-center p-1 text-white">
+            <div className="flex items-center justify-between w-[98%] h-[45%] pl-5 pr-5 text-2xl">
+              <h1>{left.title}</h1>
+              <h1>{left.subtitle}</h1>
             </div>
-        </>
-    )
-}
+            <hr className="bg-white w-full" />
+            <div className="hidden lg:flex items-center justify-center w-[98%] h-[45%]">
+              <p>{left.description}</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-export default ProjectCard
+      {/* Right card */}
+      <div className="rounded-2xl h-[45%] lg:h-[85%] w-[90%] lg:w-[40%] bg-gray-600 m-1 flex justify-center items-center">
+        <div className="bg-black h-[95%] w-[97%] m-2 rounded-2xl flex flex-col">
+          <div className="relative w-[98%] h-[82%] m-1 rounded-2xl overflow-hidden group flex justify-center items-center">
+            <img
+              className="w-full h-full object-cover blur-0 group-hover:blur-xl group-hover:scale-110 transition-all duration-500"
+              src={right.image}
+              alt={right.title}
+            />
+            <div className="absolute bg-red-500 w-[70%] h-[70%] rounded-2xl flex justify-center items-center opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+              <video
+              onClick={() => {
+                if (right.linkType === "internal") {
+                  navigate(right.link);
+                } else {
+                  window.open(right.link, "_blank");
+                }
+              }}
+                ref={rightVideoRef}
+                src={right.video}
+                autoPlay
+                loop
+                muted
+                className="w-full h-full object-cover rounded-2xl"
+              />
+            </div>
+          </div>
+          <div className="w-[98%] h-[15%] m-1 rounded-2xl flex flex-col justify-between items-center p-1 text-white">
+            <div className="flex items-center justify-between w-[98%] h-[45%] pl-5 pr-5 text-2xl">
+              <h1>{right.title}</h1>
+              <h1>{right.subtitle}</h1>
+            </div>
+            <hr className="bg-white w-full" />
+            <div className="hidden lg:flex items-center justify-center w-[98%] h-[45%]">
+              <p>{right.description}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ProjectCard;

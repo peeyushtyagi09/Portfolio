@@ -7,9 +7,9 @@ const Loader = ({ onFinish }) => {
   const textRef1 = useRef(null);
   const textRef2 = useRef(null);
   const images = [
-    "https://res.cloudinary.com/djlcf4ix9/image/upload/v1757227646/QmXgLyR6n63UMp8H8zL9JgvGw4SWuZrYSWyVEk6aL3XHKN_fzvex9.avif",
-    "https://res.cloudinary.com/djlcf4ix9/image/upload/v1757227769/QmaMr4C1di9jPe3assvNAwbM1uYujg9cmoo6wcsuDSLV3V_b2p5ig.avif",
-    "https://assets.lummi.ai/assets/Qmc3GKtHtwi5k3TkUQGTPwgf9jmBtqLHGXVgShdbmUrfVR?auto=format&w=1500"
+    "https://res.cloudinary.com/djlcf4ix9/image/upload/v1758728049/QmZpt1HAxEJvRs11eyDohysZcLfCa9w6wdkDGRZeoNBsqp_irzljt.avif",
+    "https://res.cloudinary.com/djlcf4ix9/image/upload/v1758728109/QmXtghv7fNUv9e5nSejRiLAnJLfa1FQgL6RswXqFwRGPE3_j3rv7v.avif",
+    "https://res.cloudinary.com/djlcf4ix9/image/upload/v1758728599/QmdWJmGCuyy1NKc23iRHZj1NR6pAsA4ynVL6KpNf98bpkw_of7xhd.avif"
   ];
 
   useGSAP(() => {

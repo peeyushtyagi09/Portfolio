@@ -7,11 +7,45 @@ import { EffectComposer, Bloom, ToneMapping } from "@react-three/postprocessing"
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react"; 
 import { ScrollTrigger } from "gsap/ScrollTrigger";  
-import ProjectCard from './projectsCards'
+import ProjectCard from './ProjectsCards'
 
 
 gsap.registerPlugin(ScrollTrigger);
 const Projects = ( {openNavbar}) => {
+  const projectData = [
+    {
+      image: "https://res.cloudinary.com/djlcf4ix9/image/upload/v1758733372/Screenshot_2025-09-08_180200_qk3to7.png",
+      video: "https://res.cloudinary.com/djlcf4ix9/video/upload/v1758733240/SkillSwap_-_24_September_2025_g18h5j.mp4",
+      title: "SkillSwap",
+      subtitle: "09-10-2025",
+      description: "in this project user came and swap their skills.",
+      link: "https://skillswap-hxun.vercel.app/"
+    },
+    {
+      image: "https://res.cloudinary.com/djlcf4ix9/image/upload/v1758733343/Screenshot_2025-09-24_212011_jpgb2t.png",
+      video: "https://res.cloudinary.com/djlcf4ix9/video/upload/v1758729547/Vite_React_-_24_September_2025_qgdk0m.mp4",
+      title: "K72",
+      subtitle: "09-11-2025",
+      description: "This project is a complete Clone of a Award winning website. that is my best frontend work.",
+      link: "https://k72-delta.vercel.app/"
+    },
+    {
+      image: "https://res.cloudinary.com/djlcf4ix9/image/upload/v1758733288/Screenshot_2025-09-24_212127_i2pig9.png",
+      video: "https://res.cloudinary.com/djlcf4ix9/video/upload/v1758733174/Vite_React_-_24_September_2025_1_c5dgkb.mp4",
+      title: "Chat app",
+      subtitle: "09-12-2025",
+      description: "This is just a Simple Chat app not anything especially cool.",
+      link: "https://efgb.netlify.app/"
+    }, 
+    {
+      image: "https://res.cloudinary.com/djlcf4ix9/image/upload/v1758733343/Screenshot_2025-09-24_212011_jpgb2t.png",
+      video: "https://res.cloudinary.com/djlcf4ix9/video/upload/v1758729547/Vite_React_-_24_September_2025_qgdk0m.mp4",
+      title: "Project 1",
+      subtitle: "Subtitle 1",
+      description: "Description of project 1",
+      link: "https://efgb.netlify.app/"
+    },
+  ];
   const navRef1 = useRef(null);
  
   const containerRef = useRef(null); 
@@ -106,15 +140,13 @@ const Projects = ( {openNavbar}) => {
         </span>
       </div>
     </div> 
-       <div className='h-screen w-screen bg-black'>
-        <ProjectCard />
-        </div> 
-        <div className='h-screen w-screen bg-black'>
-        <ProjectCard />
-        </div> 
-        <div className='h-screen w-screen bg-black'>
-        <ProjectCard />
-        </div> 
+    <div className="bg-black">
+      {/* First screen with 2 cards */}
+      <ProjectCard left={projectData[0]} right={projectData[1]} />
+
+      {/* Second screen with 2 cards */}
+      <ProjectCard left={projectData[2]} right={projectData[3]} />
+    </div>
 
     </div>
     

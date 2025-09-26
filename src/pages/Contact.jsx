@@ -147,7 +147,7 @@ const Contact = ({openNavbar}) => {
         {step >= 1 && (
             <div className=" mes flex justify-start items-start space-x-2">
             <div className="max-w-[70%] bg-green-800 text-white p-2 rounded-4xl rounded-br-sm shadow">
-            &nbsp;&nbsp;&nbsp;What do you prefer: WhatsApp or Email?&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;Enter you email or Outlook&nbsp;&nbsp;
             </div>
             <img
               src="https://www.lummi.ai/api/pro/image/91b02ca1-5d67-4c70-a828-5f6785e08071?asset=original&cb=o7syvW&auto=format&w=1500"
@@ -158,19 +158,19 @@ const Contact = ({openNavbar}) => {
         )}
         {step === 2 && (
             <div className="mes flex justify-end items-start space-x-2">
-              <div className="max-w-[70%] bg-green-800 text-white p-2 rounded-4xl rounded-br-sm shadow">
-                &nbsp;&nbsp;&nbsp;Enter your {inputType === "phone" ? "mobile number" : "email"}:&nbsp;&nbsp;
+              <div className="max-w-[70%] bg-green-400 text-white p-3 rounded-4xl rounded-br-sm shadow">
+                &nbsp;&nbsp;&nbsp;Enter your email&nbsp;&nbsp;
                 <input
-                  type={inputType === "phone" ? "tel" : "email"}
-                  className="ml-2 p-1 rounded text-black"
+                  type={inputType ===  "email"}
+                  className="ml-2 p-1 rounded-xl text-black"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                 />
                 <button
-                  className="ml-2 bg-white text-black px-3 py-1 rounded"
+                  className="ml-2 bg-green-800 text-white rounded-xl px-2 py-1 "
                   onClick={handleSubmit}
                 >
-                  Submit
+                  Send
                 </button>
               </div>
               <img
@@ -211,7 +211,7 @@ const Contact = ({openNavbar}) => {
            {step === 1&& (
             <>
             <button onClick={handleWhatsapp} className="but2 bg-green-600  text-white px-6 py-3  rounded-2xl shadow hover:bg-green-700 overflow-hidden mr-2 ">
-            WhatsApp
+            Outlook
             </button>
             <button onClick={handleEmail} className="but3 bg-blue-600 text-white px-6 py-3 rounded-2xl shadow hover:bg-blue-700 ml-2">
             Email

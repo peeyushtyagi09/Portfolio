@@ -129,16 +129,16 @@ const bigText = useRef(null)
             fontFamily:"Cinzel ",
             fontWeight: 100,
           }}>
-            <h1 ref={Skills1} className='uppercase '>Art DIRECtion</h1>
-            <h1 ref={Skills2} className='uppercase' >WEB disign(ui/ux)</h1>
-            <h1 ref={Skills3} className='uppercase' >Motion Design</h1> 
-            <h1 ref={Skills4} className='uppercase'>Framer Development</h1>
+            <h1 ref={Skills1} className='uppercase '>MERN Development</h1>
+            <h1 ref={Skills2} className='uppercase' >GSAP & Framer Motion</h1>
+            <h1 ref={Skills3} className='uppercase' >Desktop Applications</h1> 
+            <h1 ref={Skills4} className='uppercase'>Backend Engineering</h1>
           </div>
         </div>
         <div className='lg:w-[70%] w-full lg:h-full h-[75%] bg-[#e5e5dd] pr-4'>
           <div className='flex items-center justify-center lg:flex-row flex-col xl:pr-64  '>
             <div className=' lg:h-80 lg:w-72 h-60 w-60'>
-              <img ref={ima} className='w-full h-full overflow-hidden object-cover' src="https://res.cloudinary.com/djlcf4ix9/image/upload/v1757227646/QmXgLyR6n63UMp8H8zL9JgvGw4SWuZrYSWyVEk6aL3XHKN_fzvex9.avif" alt="" />
+              <img ref={ima} className='w-full h-full overflow-hidden object-cover' src="https://res.cloudinary.com/djlcf4ix9/image/upload/v1758728049/QmZpt1HAxEJvRs11eyDohysZcLfCa9w6wdkDGRZeoNBsqp_irzljt.avif" alt="" />
             </div>
             <div className='flex lg:flex-col flex-row justify-between lg:justify-end items-center w-80 lg:w-72 h-10 lg:h-80 gap-2 overflow-hidden'>
             <div className='overflow-hidden'>
@@ -160,7 +160,7 @@ const bigText = useRef(null)
             <h1 ref={fotterText1} style={{
             fontFamily:"Cinzel ",
             fontWeight: 100,
-          }} className=' text-[1.5vw] lg:text-2xl'>Avilable for freelance <br /> <u>Peeyushtyagi82@gamil.com</u></h1>
+          }} className=' text-[1.5vw] lg:text-2xl'>Avilable for freelance <br /> <u>peeyushtyagi82@gamil.com</u></h1>
           </div>
           <div className=' pb-20 overflow-hidden'>
             <h1 ref={bigText} style={{
