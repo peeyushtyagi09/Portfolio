@@ -7,9 +7,15 @@ const Loader = ({ onFinish }) => {
   const textRef1 = useRef(null);
   const textRef2 = useRef(null);
   const images = [
+<<<<<<< HEAD
     "https://res.cloudinary.com/djlcf4ix9/image/upload/v1758728049/QmZpt1HAxEJvRs11eyDohysZcLfCa9w6wdkDGRZeoNBsqp_irzljt.avif",
     "https://res.cloudinary.com/djlcf4ix9/image/upload/v1758728109/QmXtghv7fNUv9e5nSejRiLAnJLfa1FQgL6RswXqFwRGPE3_j3rv7v.avif",
     "https://res.cloudinary.com/djlcf4ix9/image/upload/v1758728599/QmdWJmGCuyy1NKc23iRHZj1NR6pAsA4ynVL6KpNf98bpkw_of7xhd.avif"
+=======
+    "https://res.cloudinary.com/djlcf4ix9/image/upload/v1758726756/QmNap6twUge7A9NCYeZZ3kKYyzjXgm9prmhhWmBX5ArQLn_pbxpde.avif",
+    "https://res.cloudinary.com/djlcf4ix9/image/upload/v1758726808/ab008cda-1b39-4ccf-a2fb-7a0fad08faa2_nfhyts.avif",
+    "https://res.cloudinary.com/djlcf4ix9/image/upload/v1758726965/QmUWFwoYRUnF3XnCAs7eviJP6HW8Z6JADkmiBTpEJPDrDx_r6uwvx.avif"
+>>>>>>> e07735181995d6510fd51757e0116d76244f1f2a
   ];
 
   useGSAP(() => {
