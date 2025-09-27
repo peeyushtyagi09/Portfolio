@@ -3,15 +3,24 @@ import gsap from "gsap";
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+import { useNavigate } from "react-router-dom";
 
 
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
 const About = ({ openNavbar }) => { 
+  const navigate = useNavigate();
   const rectRef = useRef(null);
   const navRef1 = useRef(null); 
   const item_container = useRef(null);
  
+  const handleLink = (link, linkType) => {
+    if (linkType === "internal") {
+      navigate(link);        // app route
+    } else {
+      window.open(link, "_blank"); // external site
+    }
+  };
 
 
   const handleOpen = () => { 
@@ -132,35 +141,35 @@ const About = ({ openNavbar }) => {
         <div className=" w-[95%] h-[95%]  absolute items-center justify-center flex">
         <img className="w-full h-full object-cover  top-0 left-0 blur-sm" src="https://res.cloudinary.com/djlcf4ix9/image/upload/v1758728599/QmdWJmGCuyy1NKc23iRHZj1NR6pAsA4ynVL6KpNf98bpkw_of7xhd.avif" />
           <div className="z-50 w-[55%] h-[60%] lg:w-[35%] lg:h-[75%] absolute overflow-hidden flex lg:left-10 top-5 lg:top-auto"> 
-          <div className="w-full h-full object-cover absolute top-0 left-0 bg-[#fff5e8] flex flex-col justify-center items-center border-2 rounded-sm">
+          <div onClick={() => handleLink("https://www.linkedin.com/in/peeyush-tyagi-b9a481334/", "external")} className="w-full h-full object-cover absolute top-0 left-0 bg-[#fff5e8] flex flex-col justify-center items-center border-2 rounded-sm">
             <p style={{ fontFamily: "Fancy Candy" }} className=" p-3 ">Do you want to connect with me?</p>
             <div className="w-[90%] h-[75%] border-2 border-black rounded-sm overflow-hidden">
             <img className="w-full h-full object-cover  top-0 left-0" src="https://res.cloudinary.com/djlcf4ix9/image/upload/v1758728599/QmdWJmGCuyy1NKc23iRHZj1NR6pAsA4ynVL6KpNf98bpkw_of7xhd.avif" />
             </div>
             <p style={{ fontFamily: "Fancy Candy" }} className=" pb-3  pt-5">Linkden</p>
           </div>
-          <div className="img_item w-full h-full object-cover absolute top-0 left-0 bg-[#fff5e8] flex flex-col justify-center items-center border-2 rounded-sm">
+          <div onClick={() => handleLink("https://leetcode.com/u/peeyush0928230/", "external")} className="img_item w-full h-full object-cover absolute top-0 left-0 bg-[#fff5e8] flex flex-col justify-center items-center border-2 rounded-sm">
             <p style={{ fontFamily: "Fancy Candy" }} className=" p-3 ">Do you want to connect with me?</p>
             <div className="w-[90%] h-[75%] border-2 border-black rounded-sm overflow-hidden">
             <img className=" w-full h-full object-cover  top-0 left-0 " src="https://res.cloudinary.com/djlcf4ix9/image/upload/v1758728109/QmXtghv7fNUv9e5nSejRiLAnJLfa1FQgL6RswXqFwRGPE3_j3rv7v.avif" />
             </div>
             <p style={{ fontFamily: "Fancy Candy" }} className=" pb-3  pt-5">Leetcode</p>
           </div>
-          <div className="img_item w-full h-full object-cover absolute top-0 left-0 bg-[#fff5e8] flex flex-col justify-center items-center border-2 rounded-sm">
+          <div onClick={() => handleLink("https://github.com/peeyushtyagi09", "external")} className="img_item w-full h-full object-cover absolute top-0 left-0 bg-[#fff5e8] flex flex-col justify-center items-center border-2 rounded-sm">
             <p style={{ fontFamily: "Fancy Candy" }} className="z-50 p-3 ">Do you want to connect with me?</p>
             <div className="w-[90%] h-[75%] border-2 border-black rounded-sm overflow-hidden">
             <img className=" w-full h-full object-cover  top-0 left-0" src="https://res.cloudinary.com/djlcf4ix9/image/upload/v1758728049/QmZpt1HAxEJvRs11eyDohysZcLfCa9w6wdkDGRZeoNBsqp_irzljt.avif" />
             </div>
             <p style={{ fontFamily: "Fancy Candy" }} className=" pb-3  pt-5">Github</p>
           </div>
-          <div className="img_item w-full h-full object-cover absolute top-0 left-0 bg-[#fff5e8] flex flex-col justify-center items-center border-2 rounded-sm">
+          <div onClick={() => handleLink("https://www.geeksforgeeks.org/user/peeyusht4tqw/", "external")} className="img_item w-full h-full object-cover absolute top-0 left-0 bg-[#fff5e8] flex flex-col justify-center items-center border-2 rounded-sm">
             <p style={{ fontFamily: "Fancy Candy" }} className=" p-3 ">Do you want to connect with me?</p>
             <div className="w-[90%] h-[75%] border-2 border-black rounded-sm overflow-hidden">
             <img className=" w-full h-full object-cover  top-0 left-0" src="https://res.cloudinary.com/djlcf4ix9/image/upload/v1757227769/QmaMr4C1di9jPe3assvNAwbM1uYujg9cmoo6wcsuDSLV3V_b2p5ig.avif" />
             </div>
             <p style={{ fontFamily: "Fancy Candy" }} className=" pb-3  pt-5">GreekforGreek</p>
           </div>
-          <div className="img_item w-full h-full object-cover absolute top-0 left-0 bg-[#fff5e8] flex flex-col justify-center items-center border-2 rounded-sm">
+          <div onClick={() => handleLink("https://www.quora.com/profile/Peeyush-Tyagi-9", "external")} className="img_item w-full h-full object-cover absolute top-0 left-0 bg-[#fff5e8] flex flex-col justify-center items-center border-2 rounded-sm">
             <p style={{ fontFamily: "Fancy Candy" }} className=" p-3 ">Do you want to connect with me?</p>
             <div className="w-[90%] h-[75%] border-2 border-black rounded-sm overflow-hidden">
             <img className=" w-full h-full object-cover  top-0 left-0" src="https://res.cloudinary.com/djlcf4ix9/image/upload/v1757227646/QmXgLyR6n63UMp8H8zL9JgvGw4SWuZrYSWyVEk6aL3XHKN_fzvex9.avif" />
@@ -173,8 +182,10 @@ const About = ({ openNavbar }) => {
               <img className="w-12 lg:w-17 border-2 border-white rounded-[50%] object-cover h-full" src="https://assets.lummi.ai/assets/Qmf39FM3RBBmPKRooWWRfPAq7sSrVvcuau7PVsKKLoReTb?auto=format&w=1500" alt="" />
             </div>
             <div style={{ fontFamily: "cinzel" }} className="h-full w-full   m-1 ">
-              <p className="text-[2.5vw] lg:text-[1.5vw] pl-20 lg:pl-30">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio iste natus neque impedit ipsam eum, ratione, repellat dignissimos cum unde numquam ea at praesentium obcaecati, sed illo similique? Facilis, cupiditate!</p>
-              <p className="text-[2.5vw] lg:text-[1vw] pr-30 pl-3 pt-52 bottom-0 hidden lg:flex">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio iste natus neque impedit ipsam eum, ratione, </p>
+              <p className="text-[2.5vw] lg:text-[1.5vw] pl-20 lg:pl-30">I build interactive web experiences that blend clean design with smooth motion.  
+My focus is on creating fast, scalable applications while keeping interfaces intuitive.  
+Always learning, always shipping.</p>
+              <p className="text-[2.5vw] lg:text-[1vw] pr-30 pl-3 pt-52 bottom-0 hidden lg:flex">Building apps that feel alive, fast, and intuitive. I combine creativity, code, and a love for learning in every line I write.</p>
 
             </div>
             <div>
