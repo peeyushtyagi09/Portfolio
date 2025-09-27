@@ -85,7 +85,7 @@ const Projects = ( {openNavbar}) => {
   };
 
   return (
-    <div className='w-screen h-screen  bg-black overflow-x-hidden'>
+    <div className='w-screen min-h-screen  bg-black overflow-x-hidden'>
        <div ref={navRef1} className=' text-white sticky h-[10%] w-screen  overflow-hidden bg-transprant flex flex-row justify-between items-center pl-10 pr-10'>
         <div className='overflow-hidden'>
         <h1 style={{fontFamily: "Fancy Candy"}}  className='uppercase leading-3.5 text-[1.1rem]  p-1.5 pb-0 rounded-[20%] text-[#e5e5dd] bg-black '> PE <br/> TY </h1>
@@ -93,7 +93,7 @@ const Projects = ( {openNavbar}) => {
         <h1 onClick={handleOpen} style={{fontFamily: "Fancy Candy"}}  className='uppercase leading-3.5 text-[1.4rem]  p-2 pb-1  rounded-[20%] text-[#e5e5dd] bg-black  hover:p-3 transition-all duration-500'> menu</h1>
         
       </div>
-        <div className='  w-screen h-[90%] flex justify-center items-center'>
+        <div className='  w-screen h-screen flex justify-center items-center'>
         <Canvas  flat
         dpr={[1, 1.5]} // render scale for performance
         camera={{ fov, position: [0, 0, 4] }}
