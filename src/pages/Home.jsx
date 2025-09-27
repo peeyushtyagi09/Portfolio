@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from "react";
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 
@@ -16,6 +16,32 @@ const Home = ({ openNavbar }) => {
   const fotterText2 = useRef(null);
 const navRef1 = useRef(null)
 const bigText = useRef(null)
+
+const emailRef = useRef(null);
+const toastRef = useRef(null);
+const [showToast, setShowToast] = useState(false);
+
+  const handleCopy = () => {
+    const email = "peeyushtyagi82@gamil.com";
+    navigator.clipboard.writeText(email).then(() => {
+      setShowToast(true);
+      // Animate toast in
+    gsap.from(toastRef.current, {
+      opacity: 0,
+      scale:0,
+      y: 40,
+      duration: 3,
+      ease: "power3.in",
+    }) 
+    gsap.to(toastRef.current, {
+      opacity: 0,
+      x: 100,
+      duration: 0.5,
+      delay: 2,
+      onComplete: () => setShowToast(false),
+    });
+  });
+  };
 
   const tl = gsap.timeline()
   useGSAP(() => {
@@ -156,11 +182,16 @@ const bigText = useRef(null)
         </div>
         </div>
         <div className='w-full h-[20%] bg-[#e5e5dd] flex  justify-between items-center p-7'>
-          <div className='overflow-hidden'>
+          <div className='overflow-hidden cursor-pointer' onClick={handleCopy}>
             <h1 ref={fotterText1} style={{
             fontFamily:"Cinzel ",
             fontWeight: 100,
           }} className=' text-[1.5vw] lg:text-2xl'>Avilable for freelance <br /> <u>peeyushtyagi82@gamil.com</u></h1>
+          {showToast && (
+        <div  ref={toastRef} className="fixed top-5 right-5 bg-white text-black border-2 border-black  px-4 py-2 rounded-4xl rounded-br-xs shadow-lg animate-slideIn">
+          ✨ Email copied to clipboard!
+        </div>
+      )}
           </div>
           <div className=' pb-20 overflow-hidden'>
             <h1 ref={bigText} style={{
