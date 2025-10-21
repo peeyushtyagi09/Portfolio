@@ -6,7 +6,7 @@ body, html{
     padding: 0;
     box-sizing: border-box;
 }
-@font-face {
+/* @font-face {
     font-family: font1;
     src: url('https://res.cloudinary.com/djlcf4ix9/raw/upload/v1757103932/Lausanne-300_r1z90g.woff2');
     font-weight: 300;
@@ -15,6 +15,18 @@ body, html{
   @font-face {
     font-family: font2;
     src: url('https://res.cloudinary.com/djlcf4ix9/raw/upload/v1757104290/Lausanne-500_vbrxaq.woff2');
+    font-weight: 500;
+    font-style: normal;
+  } */
+@font-face {
+    font-family: font1;
+    src: url('font1.woff2');
+    font-weight: 300;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: font2;
+    src: url('font2.woff2');
     font-weight: 500;
     font-style: normal;
   }
