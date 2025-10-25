@@ -7,6 +7,13 @@ body, html{
     box-sizing: border-box;
 }
 @font-face {
+  font-family: 'Fancy Candy';
+  src: url('https://res.cloudinary.com/djlcf4ix9/raw/upload/v1761407761/FancyCandy-Regular_goywjg.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
     font-family: font1;
     src: url('https://res.cloudinary.com/djlcf4ix9/raw/upload/v1757103932/Lausanne-300_r1z90g.woff2');
     font-weight: 300;
