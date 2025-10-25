@@ -20,13 +20,13 @@ body, html{
   } */
 @font-face {
     font-family: font1;
-    src: url('font1.woff2');
+    src: url('Lausanne-300.woff2') format('woff2');
     font-weight: 300;
     font-style: normal;
   }
   @font-face {
     font-family: font2;
-    src: url('font2.woff2');
+    src: url('Lausanne-500.woff2') format('woff2');
     font-weight: 500;
     font-style: normal;
   }
