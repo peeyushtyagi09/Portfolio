@@ -25,6 +25,19 @@ body, html{
     font-weight: 500;
     font-style: normal;
   }
+
+/* new  */
+@font-face {
+  font-family: "Fancy Candy";
+  src: url("/fonts/FancyCandy-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.font-fancy {
+  font-family: "Fancy Candy", sans-serif;
+}
+
 /* @font-face {
     font-family: font1;
     src: url('Lausanne-300.woff2') format('woff2');
